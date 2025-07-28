@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Fragrances - Aromi Perfumes</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#C5A572",
+              secondary: "#F8F1F1",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      .font-cormorant {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #c5a572, #d4b886);
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #b8965f, #c5a572);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(197, 165, 114, 0.3);
+      }
+      .btn-outline {
+        border: 2px solid #c5a572;
+        color: #c5a572;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+      .btn-outline:hover {
+        background: #c5a572;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .product-card {
+        transition: all 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .product-card:hover .product-image {
+        transform: scale(1.05);
+      }
+      .product-image {
+        transition: transform 0.3s ease;
+      }
+
+      .filter-dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+      .dropdown-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .range-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 3px;
+        background: #e5e7eb;
+        outline: none;
+      }
+      .range-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #c5a572;
+        cursor: pointer;
+        border: 2px solid white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+      .range-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #c5a572;
+        cursor: pointer;
+        border: 2px solid white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .quick-view-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .product-card:hover .quick-view-overlay {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .pagination-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e5e7eb;
+        background: white;
+        color: #6b7280;
+        transition: all 0.3s ease;
+      }
+      .pagination-btn:hover {
+        background: #c5a572;
+        color: white;
+        border-color: #c5a572;
+      }
+      .pagination-btn.active {
+        background: #c5a572;
+        color: white;
+        border-color: #c5a572;
+      }
+    </style>
+  </head>
+  <body class="font-montserrat bg-white">
+    <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-8">
+            <div class="font-['Pacifico'] text-2xl text-gray-900">
+              <img
+                alt="Logo"
+                class="w-32 h-auto logo1"
+                src="https://aromiperfumes.com/wp-content/uploads/2025/02/cropped-Transparent.png"
+              />
+            </div>
+            <a
+              href="https://readdy.ai/home/c1f7e3ac-e62e-44c6-82e7-513809b4e0c3/d2134846-bc6d-4e7b-7db714290373"
+              data-readdy="true"
+              class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium flex items-center space-x-2"
+            >
+              <div class="w-5 h-5 flex items-center justify-center">
+                <i class="ri-arrow-left-line"></i>
+              </div>
+              <span>Back to Collections</span>
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium"
+              >About</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium"
+              >Shop</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors duration-300 font-medium"
+              >Contact</a
+            >
+            <button class="relative">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-shopping-cart-line text-xl text-gray-600"></i>
+              </div>
+              <span
+                class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"
+                >3</span
+              >
+            </button>
+          </div>
+          <button class="md:hidden">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-menu-line text-xl text-gray-600"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-secondary py-16">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h1 class="font-playfair text-4xl md:text-5xl text-gray-900 mb-4">
+          Men's Fragrances
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-6">
+          Discover our sophisticated collection of masculine scents, crafted for
+          the modern gentleman who appreciates luxury and distinction.
+        </p>
+        <p class="text-gray-500 font-medium">
+          Showing <span id="product-count">24</span> products
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+        <div class="flex flex-wrap items-center gap-6">
+          <div class="filter-dropdown">
+            <button
+              class="filter-btn flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-button bg-white hover:border-primary transition-colors"
+            >
+              <span id="fragrance-selected">All Fragrances</span>
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </button>
+            <div class="dropdown-menu" id="fragrance-dropdown">
+              <div class="p-2">
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="all"
+                >
+                  All Fragrances
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="woody"
+                >
+                  Woody
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="fresh"
+                >
+                  Fresh
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="spicy"
+                >
+                  Spicy
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="oriental"
+                >
+                  Oriental
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <span class="text-gray-600 font-medium">Price Range:</span>
+            <div class="flex items-center space-x-3">
+              <span class="text-sm text-gray-500"
+                >$<span id="min-price">50</span></span
+              >
+              <input
+                type="range"
+                id="price-range"
+                class="range-slider w-32"
+                min="50"
+                max="500"
+                value="500"
+              />
+              <span class="text-sm text-gray-500"
+                >$<span id="max-price">500</span></span
+              >
+            </div>
+          </div>
+
+          <div class="filter-dropdown">
+            <button
+              class="filter-btn flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-button bg-white hover:border-primary transition-colors"
+            >
+              <span id="sort-selected">Sort by Popularity</span>
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </button>
+            <div class="dropdown-menu" id="sort-dropdown">
+              <div class="p-2">
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="popularity"
+                >
+                  Sort by Popularity
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="price-low"
+                >
+                  Price: Low to High
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="price-high"
+                >
+                  Price: High to Low
+                </button>
+                <button
+                  class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded"
+                  data-value="newest"
+                >
+                  Newest Arrivals
+                </button>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn-outline px-6 py-2 !rounded-button whitespace-nowrap"
+            id="clear-filters"
+          >
+            Clear Filters
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pb-16">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        id="products-grid"
+      >
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="woody"
+          data-price="185"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=luxury%20mens%20cologne%20bottle%20with%20dark%20amber%20glass%20and%20wooden%20cap%20on%20elegant%20marble%20surface%2C%20masculine%20fragrance%20photography%2C%20sophisticated%20product%20styling%2C%20premium%20cosmetics%20display%2C%20woody%20scent%20aesthetic&width=400&height=500&seq=mens001&orientation=portrait"
+              alt="Midnight Oak"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=luxury%20cologne%20bottle%20detail%20showing%20wooden%20cap%20texture%20and%20amber%20glass%2C%20masculine%20fragrance%20close%20up%20photography&width=60&height=60&seq=detail001&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=mens%20cologne%20bottle%20side%20view%20showing%20liquid%20color%20and%20glass%20texture%2C%20premium%20fragrance%20detail%20shot&width=60&height=60&seq=detail002&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-primary bg-opacity-10 text-primary px-2 py-1 rounded text-xs font-medium"
+                >Woody</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Midnight Oak
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Rich sandalwood and cedar blend with hints of vanilla and amber
+              for a sophisticated masculine scent.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$185.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="fresh"
+          data-price="145"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=elegant%20mens%20cologne%20bottle%20with%20crystal%20clear%20glass%20and%20silver%20cap%20on%20white%20marble%20background%2C%20fresh%20aquatic%20fragrance%20photography%2C%20clean%20masculine%20scent%20styling%2C%20premium%20cosmetics%20display&width=400&height=500&seq=mens002&orientation=portrait"
+              alt="Ocean Breeze"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=clear%20cologne%20bottle%20detail%20showing%20silver%20cap%20and%20transparent%20glass%2C%20fresh%20fragrance%20close%20up&width=60&height=60&seq=detail003&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=mens%20fresh%20cologne%20bottle%20profile%20view%20showing%20liquid%20clarity%2C%20aquatic%20scent%20detail&width=60&height=60&seq=detail004&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-medium"
+                >Fresh</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Ocean Breeze
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Crisp bergamot and sea salt combine with fresh mint and marine
+              notes for an invigorating experience.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$145.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="spicy"
+          data-price="165"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=sophisticated%20mens%20cologne%20bottle%20with%20black%20glass%20and%20gold%20accents%20on%20luxury%20marble%20surface%2C%20spicy%20masculine%20fragrance%20photography%2C%20premium%20cosmetics%20styling%2C%20elegant%20product%20display&width=400&height=500&seq=mens003&orientation=portrait"
+              alt="Spice Route"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=black%20cologne%20bottle%20detail%20with%20gold%20cap%20texture%2C%20spicy%20fragrance%20close%20up%20photography&width=60&height=60&seq=detail005&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=luxury%20mens%20spicy%20cologne%20side%20view%20showing%20dark%20liquid%20and%20premium%20glass&width=60&height=60&seq=detail006&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-medium"
+                >Spicy</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Spice Route
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Bold cardamom and black pepper with warm cinnamon and leather
+              create an adventurous masculine aura.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$165.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="oriental"
+          data-price="195"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=luxurious%20mens%20cologne%20bottle%20with%20ornate%20design%20and%20bronze%20details%20on%20elegant%20marble%20background%2C%20oriental%20masculine%20fragrance%20photography%2C%20sophisticated%20product%20styling%2C%20premium%20cosmetics%20display&width=400&height=500&seq=mens004&orientation=portrait"
+              alt="Desert Nights"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=ornate%20cologne%20bottle%20detail%20showing%20bronze%20decorative%20elements%2C%20oriental%20fragrance%20close%20up&width=60&height=60&seq=detail007&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=luxury%20oriental%20mens%20cologne%20profile%20view%20with%20amber%20liquid%20and%20detailed%20craftsmanship&width=60&height=60&seq=detail008&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-medium"
+                >Oriental</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Desert Nights
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Exotic oud and frankincense blend with warm amber and musk for a
+              mysterious and captivating presence.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$195.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="fresh"
+          data-price="125"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=modern%20mens%20cologne%20bottle%20with%20frosted%20glass%20and%20chrome%20cap%20on%20clean%20white%20background%2C%20fresh%20citrus%20fragrance%20photography%2C%20contemporary%20masculine%20scent%20styling&width=400&height=500&seq=mens005&orientation=portrait"
+              alt="Citrus Burst"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=frosted%20cologne%20bottle%20detail%20with%20chrome%20cap%20texture%2C%20fresh%20citrus%20fragrance%20close%20up&width=60&height=60&seq=detail009&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=modern%20fresh%20mens%20cologne%20side%20angle%20showing%20frosted%20glass%20texture&width=60&height=60&seq=detail010&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-medium"
+                >Fresh</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Citrus Burst
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Zesty lemon and grapefruit with fresh basil and white tea create
+              an energizing daytime fragrance.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$125.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="woody"
+          data-price="175"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=elegant%20mens%20cologne%20bottle%20with%20walnut%20wood%20cap%20and%20amber%20tinted%20glass%20on%20marble%20surface%2C%20woody%20masculine%20fragrance%20photography%2C%20natural%20sophisticated%20styling&width=400&height=500&seq=mens006&orientation=portrait"
+              alt="Forest Edge"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=wooden%20cap%20cologne%20bottle%20detail%20showing%20walnut%20grain%20texture%2C%20woody%20fragrance%20close%20up&width=60&height=60&seq=detail011&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=amber%20glass%20cologne%20bottle%20profile%20with%20wooden%20cap%2C%20natural%20woody%20scent%20detail&width=60&height=60&seq=detail012&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-primary bg-opacity-10 text-primary px-2 py-1 rounded text-xs font-medium"
+                >Woody</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Forest Edge
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Pine needles and cedarwood with hints of moss and bergamot evoke
+              the essence of untamed nature.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$175.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="spicy"
+          data-price="155"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=masculine%20cologne%20bottle%20with%20copper%20metallic%20finish%20and%20black%20accents%20on%20dark%20marble%20background%2C%20spicy%20fragrance%20photography%2C%20bold%20masculine%20styling&width=400&height=500&seq=mens007&orientation=portrait"
+              alt="Fire Storm"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=copper%20cologne%20bottle%20detail%20showing%20metallic%20finish%20texture%2C%20spicy%20fragrance%20close%20up&width=60&height=60&seq=detail013&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=masculine%20spicy%20cologne%20side%20view%20with%20copper%20and%20black%20design%20elements&width=60&height=60&seq=detail014&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-medium"
+                >Spicy</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">Fire Storm</h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Intense chili pepper and ginger with smoky tobacco and dark
+              chocolate for the bold and daring.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$155.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="product-card bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+          data-fragrance="oriental"
+          data-price="205"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=opulent%20mens%20cologne%20bottle%20with%20intricate%20gold%20patterns%20and%20deep%20blue%20glass%20on%20luxury%20marble%20surface%2C%20oriental%20masculine%20fragrance%20photography%2C%20exotic%20sophisticated%20styling&width=400&height=500&seq=mens008&orientation=portrait"
+              alt="Sultan's Dream"
+              class="product-image w-full h-80 object-cover"
+            />
+            <div class="quick-view-overlay rounded-lg">
+              <div class="text-center text-white p-6">
+                <h4 class="font-playfair text-xl mb-3">Quick View</h4>
+                <div class="flex justify-center space-x-2 mb-4">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=ornate%20blue%20cologne%20bottle%20detail%20with%20gold%20pattern%20engravings%2C%20oriental%20fragrance%20close%20up&width=60&height=60&seq=detail015&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                  <img
+                    src="https://readdy.ai/api/search-image?query=luxury%20oriental%20mens%20cologne%20profile%20showing%20deep%20blue%20glass%20and%20gold%20details&width=60&height=60&seq=detail016&orientation=squarish"
+                    alt="Detail"
+                    class="w-12 h-12 rounded object-cover"
+                  />
+                </div>
+                <div class="flex space-x-2 mb-4">
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    50ml
+                  </button>
+                  <button class="px-3 py-1 border border-white rounded text-sm">
+                    100ml
+                  </button>
+                </div>
+                <div class="flex space-x-2">
+                  <button
+                    class="btn-primary text-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    class="btn-outline text-white border-white px-4 py-2 !rounded-button whitespace-nowrap text-sm"
+                  >
+                    <div class="w-4 h-4 flex items-center justify-center">
+                      <i class="ri-heart-line"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-medium"
+                >Oriental</span
+              >
+              <div class="w-4 h-4 flex items-center justify-center">
+                <i
+                  class="ri-heart-line text-gray-400 hover:text-primary cursor-pointer"
+                ></i>
+              </div>
+            </div>
+            <h3 class="font-playfair text-xl text-gray-900 mb-2">
+              Sultan's Dream
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+              Royal saffron and rose with precious agarwood and white musk
+              create an aura of luxury and mystique.
+            </p>
+            <p class="text-primary text-xl font-semibold mb-4">$205.00</p>
+            <button
+              class="btn-primary text-white w-full py-3 !rounded-button whitespace-nowrap"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-between mt-12 pt-8 border-t border-gray-200"
+      >
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-600">Items per page:</span>
+          <select class="border border-gray-300 rounded-button px-3 py-2 pr-8">
+            <option value="12">12</option>
+            <option value="24" selected>24</option>
+            <option value="36">36</option>
+          </select>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button class="pagination-btn rounded-button">
+            <div class="w-4 h-4 flex items-center justify-center">
+              <i class="ri-arrow-left-s-line"></i>
+            </div>
+          </button>
+          <button class="pagination-btn active rounded-button">1</button>
+          <button class="pagination-btn rounded-button">2</button>
+          <button class="pagination-btn rounded-button">3</button>
+          <span class="text-gray-400">...</span>
+          <button class="pagination-btn rounded-button">8</button>
+          <button class="pagination-btn rounded-button">
+            <div class="w-4 h-4 flex items-center justify-center">
+              <i class="ri-arrow-right-s-line"></i>
+            </div>
+          </button>
+        </div>
+
+        <div class="text-gray-600">Showing 1-24 of 186 results</div>
+      </div>
+    </div>
+
+    <footer class="bg-black text-white py-16 mt-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div>
+            <div class="font-['Pacifico'] text-3xl mb-6">logo</div>
+            <p class="text-gray-300 leading-relaxed">
+              Crafting exceptional fragrances that elevate your senses and
+              create lasting memories.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-playfair text-xl mb-6">Navigation</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-primary transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-primary transition-colors"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-playfair text-xl mb-6">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary transition-colors rounded-full"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary transition-colors rounded-full"
+              >
+                <i class="ri-facebook-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary transition-colors rounded-full"
+              >
+                <i class="ri-twitter-line"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-playfair text-xl mb-6">Contact</h3>
+            <div class="space-y-3 text-gray-300">
+              <p>
+                AROMI PERFUMES INTERNATIONAL LLP, OFFICE NO 21, PLOT NO. 313/319
+                HARESH CHAMBER, SAMUEL STREET, VADGADI, MASJID, MANDVI, MUMBAI
+                400003.
+              </p>
+              <p>+91-8779293772</p>
+              <p>info@aromiperfumes.com</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Aromi Perfumes. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script id="dropdown-functionality">
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".filter-dropdown");
+        dropdowns.forEach((dropdown) => {
+          const btn = dropdown.querySelector(".filter-btn");
+          const menu = dropdown.querySelector(".dropdown-menu");
+          const options = menu.querySelectorAll("button");
+          const selectedText = btn.querySelector("span");
+          const selectedId = btn.querySelector("span").id;
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            document.querySelectorAll(".dropdown-menu").forEach((m) => {
+              if (m !== menu) m.classList.remove("active");
+            });
+            menu.classList.toggle("active");
+          });
+
+          options.forEach((option) => {
+            option.addEventListener("click", function () {
+              selectedText.textContent = this.textContent;
+              menu.classList.remove("active");
+              filterProducts();
+            });
+          });
+        });
+
+        document.addEventListener("click", function () {
+          document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+            menu.classList.remove("active");
+          });
+        });
+      });
+    </script>
+
+    <script id="price-range-functionality">
+      document.addEventListener("DOMContentLoaded", function () {
+        const priceRange = document.getElementById("price-range");
+        const maxPriceDisplay = document.getElementById("max-price");
+
+        priceRange.addEventListener("input", function () {
+          maxPriceDisplay.textContent = this.value;
+          filterProducts();
+        });
+      });
+    </script>
+
+    <script id="filter-functionality">
+      document.addEventListener("DOMContentLoaded", function () {
+        function filterProducts() {
+          const selectedFragrance = document
+            .getElementById("fragrance-selected")
+            .textContent.toLowerCase();
+          const maxPrice = parseInt(
+            document.getElementById("price-range").value
+          );
+          const sortBy = document
+            .getElementById("sort-selected")
+            .textContent.toLowerCase();
+          const products = document.querySelectorAll(".product-card");
+          let visibleCount = 0;
+
+          products.forEach((product) => {
+            const fragrance = product.dataset.fragrance;
+            const price = parseInt(product.dataset.price);
+            let shouldShow = true;
+
+            if (
+              selectedFragrance !== "all fragrances" &&
+              fragrance !== selectedFragrance
+            ) {
+              shouldShow = false;
+            }
+
+            if (price > maxPrice) {
+              shouldShow = false;
+            }
+
+            if (shouldShow) {
+              product.style.display = "block";
+              visibleCount++;
+            } else {
+              product.style.display = "none";
+            }
+          });
+
+          document.getElementById("product-count").textContent = visibleCount;
+        }
+
+        document
+          .getElementById("clear-filters")
+          .addEventListener("click", function () {
+            document.getElementById("fragrance-selected").textContent =
+              "All Fragrances";
+            document.getElementById("sort-selected").textContent =
+              "Sort by Popularity";
+            document.getElementById("price-range").value = 500;
+            document.getElementById("max-price").textContent = "500";
+            filterProducts();
+          });
+        window.filterProducts = filterProducts;
+      });
+    </script>
+
+    <script id="wishlist-functionality">
+      document.addEventListener("DOMContentLoaded", function () {
+        const wishlistBtns = document.querySelectorAll(
+          '[class*="ri-heart-line"]'
+        );
+        wishlistBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            if (this.classList.contains("ri-heart-line")) {
+              this.classList.remove("ri-heart-line");
+              this.classList.add("ri-heart-fill");
+              this.style.color = "#C5A572";
+            } else {
+              this.classList.remove("ri-heart-fill");
+              this.classList.add("ri-heart-line");
+              this.style.color = "";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
